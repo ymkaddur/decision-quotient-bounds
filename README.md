@@ -11,24 +11,23 @@ do protect it. It also shows that correlated perturbations, whose rows share a c
 certified with strictly less information than bounds on every row.
 
 Every theorem is checked by the Lean kernel, with no `sorry`, and uses only the axioms `propext`,
-`Classical.choice` and `Quot.sound`. Labels: **[L]** proved in Lean; **refuted** means a
-counterexample to the stated claim is proved in Lean; **open** means stated but not resolved here.
+`Classical.choice` and `Quot.sound`. Labels: **[L]** new theorem or construction proved in Lean; **[L-known]** Lean formalization of a known result; **refuted** counterexample proved in Lean; **open** precise statement not resolved here.
 
 ## Contents
 
 | Module | Statement | Status |
 |--------|-----------|--------|
-| `SoftmaxKL` | `KL(softmax z ‖ softmax(z + δ)) = log E_p[e^δ] − E_p[δ]` with `p = softmax z` | [L] |
-| | gauge invariance: `softmax(z + c·1) = softmax z`, and `δ ↦ δ + c·1` leaves the KL unchanged | [L] |
-| | Hoeffding's lemma for finite distributions: `log E_p[e^δ] − E_p[δ] ≤ (b − a)²/8` for `δ ∈ [a, b]` | [L] |
-| | `KL(softmax z ‖ softmax(z + δ)) ≤ (max δ − min δ)²/8` | [L] |
+| `SoftmaxKL` | `KL(softmax z ‖ softmax(z + δ)) = log E_p[e^δ] − E_p[δ]` with `p = softmax z` | [L-known] |
+| | gauge invariance: `softmax(z + c·1) = softmax z`, and `δ ↦ δ + c·1` leaves the KL unchanged | [L-known] |
+| | Hoeffding's lemma for finite distributions: `log E_p[e^δ] − E_p[δ] ≤ (b − a)²/8` for `δ ∈ [a, b]` | [L-known] |
+| | `KL(softmax z ‖ softmax(z + δ)) ≤ (max δ − min δ)²/8` | [L-known] |
 | | claim "a small enough KL preserves the top-1 class": for every `η > 0` a two-class shift with `KL < η` changes the top class | **refuted** |
-| `PairwiseContrast` | `i` stays the strict argmax iff `δ_j − δ_i < z_i − z_j` for all `j ≠ i` | [L] |
-| | robust form over a set `Δ` of shifts: `z_i − z_j > δ_j − δ_i` for every `δ ∈ Δ` | [L] |
-| | top-k sets: the same condition for every member / non-member pair | [L] |
-| | margin `> 2ρ` suffices when `‖δ‖∞ ≤ ρ`; margin exactly `2ρ` does not | [L] |
-| | contrasts are invariant under `δ ↦ δ + c·1` | [L] |
-| `CommonModeCancellation` | for rows `e_j = c + r_j`: `(e_j − e_i)·x = (r_j − r_i)·x` | [L] |
+| `PairwiseContrast` | `i` stays the strict argmax iff `δ_j − δ_i < z_i − z_j` for all `j ≠ i` | [L-known] |
+| | robust form over a set `Δ` of shifts: `z_i − z_j > δ_j − δ_i` for every `δ ∈ Δ` | [L-known] |
+| | top-k sets: the same condition for every member / non-member pair | [L-known] |
+| | margin `> 2ρ` suffices when `‖δ‖∞ ≤ ρ`; margin exactly `2ρ` does not | [L-known] |
+| | contrasts are invariant under `δ ↦ δ + c·1` | [L-known] |
+| `CommonModeCancellation` | for rows `e_j = c + r_j`: `(e_j − e_i)·x = (r_j − r_i)·x` | [L-known] |
 | | residual contrasts certify the decision for every common component `c` | [L] |
 | | per-row certificates can need a margin `2M` (any `M`) where the residual certificate needs `0` | [L] |
 
