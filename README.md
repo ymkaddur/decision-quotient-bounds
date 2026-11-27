@@ -38,6 +38,19 @@ Open questions:
 - **open**: sharp joint conditions on KL and margin that imply preservation of the whole sampling
   distribution, rather than only of the argmax.
 
+## Obligation hypergraphs
+
+| Module | Statement | Status |
+|--------|-----------|--------|
+| `ObligationHypergraph` | `R` protects a consequence iff it meets every inclusion-minimal adversarial support, for any finite admissible family and no monotonicity assumption | [L-known] |
+| | optimal protections under any cost are the optimal weighted transversals; several consequences: hit the union of the minimal families | [L-known] |
+| | claim "keeping the coordinates whose single change is visible suffices" (`AND` over two or more coordinates) | **refuted** |
+| | counterexample-guided discovery: sound, stops within `|𝓜| + 1` oracle calls, optimal with minimum-weight proposals | [L-known] |
+| | threshold "at least `k` of `n`": minimum-cardinality proposals need more than `C(n, k)` oracle calls, with any exact oracle | [L] |
+
+Statement, proof sketch, background and limitations:
+[docs/obligation-hypergraphs.md](docs/obligation-hypergraphs.md).
+
 ## Reproduce
 
 ```bash
