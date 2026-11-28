@@ -38,12 +38,25 @@ Open questions:
 - **open**: sharp joint conditions on KL and margin that imply preservation of the whole sampling
   distribution, rather than only of the argmax.
 
+## Finite receiver contracts and structured probes
+
+`ConfusionDecoding` characterizes exact common message budgets by the chromatic number of the
+confusion graph. Interval receivers use a pair of extrema per fiber. Higher-order obstructions
+and dominant representatives extend the formulation to more general receivers.
+
+`StructuredProbes` verifies intervention protection on downward-closed domains by probing only
+an explicitly supplied monomial family. A single-monomial witness shows why a degree bound
+requires independent validation.
+
+[Statements, proofs, scope and independent controls](docs/structured-confusion.md).
+
 ## Reproduce
 
 ```bash
 lake exe cache get
 lake build
 scripts/audit.sh     # #print axioms for every theorem; fails on sorry, warnings or extra axioms
+python scripts/confusion_checks.py
 ```
 
 Pinned toolchain: `leanprover/lean4:v4.33.1`, Mathlib `v4.33.1`
